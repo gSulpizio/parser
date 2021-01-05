@@ -11,4 +11,16 @@ export default function perkinsElmerParse(content) {
       from = to;
     }
   }
+  if (content[i] === 'Start the Run ') {
+    to = i;
+    addPreRunData(content, data, from, to);
+    from = to;
+  }
+  if (content[i].includes('1) ')) {
+    console.log(i)
+    to = i;
+    addPreRunData(content, data, from, to);
+    from = to;
+  }
+}
 }
