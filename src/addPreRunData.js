@@ -1,3 +1,5 @@
-export default function addPreRunData(rawData, data, from, to) {
-  data.preRun = rawData.slice(from, to);
+export default function addPreRunData(submatrix, result) {
+  for (let row of submatrix) {
+    result.preRun.push(row);
+  }
 }

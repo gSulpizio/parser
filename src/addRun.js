@@ -1,6 +1,6 @@
 export default function addRun(rawData, data, from) {
   for (let i = from + 3; i < rawData.length; i++) {
-    if (typeof rawData[i][0] !== 'undefined' && rawData[i][0].includes(') ')) {
+    if (rawData[i][0] && rawData[i][0].includes(') ')) {
       continue;
     }
 

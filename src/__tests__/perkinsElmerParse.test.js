@@ -4,9 +4,11 @@ import { join } from 'path';
 import perkinsElmerParse from '../perkinsElmerParse.js';
 
 describe('test perkinsElmerParse', () => {
-  it('should return object with the info from files rawTGA', () => {
+  it.only('should return object with the info from files rawTGA', () => {
     let file = readFileSync(join(__dirname, '/example/rawTGA.xlsx'));
     let result = perkinsElmerParse(file);
+    console.log(result);
+
     expect(result).toMatchSnapshot();
     expect(result.x).toHaveLength(4140);
 
