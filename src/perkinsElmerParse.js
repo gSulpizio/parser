@@ -6,9 +6,17 @@ import { getMatrixFromXLSX } from './getMatrixFromXLSX';
 
 export default function perkinsElmerParse(file) {
   let content = getMatrixFromXLSX(file);
+  //console.log(content);
   let from = 0;
   let to = 0;
-  let data = { x: [], y: [], time: [], programTemperature: [], gasFlow: [] };
+  let data = {
+    x: [],
+    y: [],
+    time: [],
+    programTemperature: [],
+    gasFlow: [],
+    preRun: [],
+  };
   let swtch = true;
   let i = 0;
   while ((swtch = true) && i < content.length) {
