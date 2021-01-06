@@ -1,6 +1,7 @@
-import { getMatrixFromXLSX } from '../getMatrixFromXLSX';
-import { join } from 'path';
 import { readFileSync } from 'fs';
+import { join } from 'path';
+
+import { getMatrixFromXLSX } from '../getMatrixFromXLSX';
 
 describe('test getMatrixFromXLSX', () => {
   it('should return matrix [["a", "b"], ["c", "d"]]', () => {
@@ -13,7 +14,7 @@ describe('test getMatrixFromXLSX', () => {
   it('should return from file rawTGA.xlsx', () => {
     let file = readFileSync(join(__dirname, '/example/rawTGA.xlsx'));
     let result = getMatrixFromXLSX(file);
-    console.log(result);
+    //console.log(result);
     //expect(getMatrixFromXLSX(file)).toStrictEqual([['a', 'b'],['c', 'd'],]);
   });
 });

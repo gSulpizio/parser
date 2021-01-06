@@ -1,4 +1,14 @@
-export default function addPreRunData.js(rawData, data, from, to) {
-    data.run=rawData.slice(from, to);
+export default function addRun(rawData, data, from) {
+  for (let i = from + 3; i < rawData.length; i++) {
+    if (typeof rawData[i][0] !== 'undefined' && rawData[i][0].includes(') ')) {
+      continue;
+    }
+
+    //console.log(rawData[i][5]);
+    data.x.push(rawData[i][5]);
+    data.y.push(rawData[i][2] - rawData[i][3]);
+    data.time.push(rawData[i][1]);
+    data.programTemperature.push(rawData[i][4]);
+    data.gasFlow.push(rawData[i][6]);
   }
-  
+}
