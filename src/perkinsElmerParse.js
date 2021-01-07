@@ -11,7 +11,7 @@ export default function perkinsElmerParse(file) {
   let result = {
     variables: {
       x: { data: [], units: '°C', label: 'temperature', type: 'INDEPENDENT' },
-      y: { data: [], units: 'mg', label: 'weight', type: 'INDEPENDENT' }, //independante?
+      y: { data: [], units: 'mg', label: 'weight', type: 'INDEPENDENT' }, //independent???
       t: { data: [], units: 'min', label: 'time', type: 'INDEPENDENT' },
       u: {
         data: [],
@@ -19,11 +19,9 @@ export default function perkinsElmerParse(file) {
         label: 'program temperature',
         type: 'INDEPENDENT',
       },
-      g: { data: [], units: '', label: 'gas flow', type: 'INDEPENDENT' },
+      g: { data: [], units: 'ml/min', label: 'gas flow', type: 'INDEPENDENT' },
     },
-    meta: {
-      Header: [],
-    },
+    meta: {},
   };
   let swtch = true;
   let i = 0;
