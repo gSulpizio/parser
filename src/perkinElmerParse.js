@@ -10,16 +10,16 @@ export default function perkinElmerParse(file) {
   let from = 0;
   let result = {
     variables: {
-      x: { data: [], units: '°C', label: 'temperature', type: 'INDEPENDENT' },
-      y: { data: [], units: 'mg', label: 'weight', type: 'INDEPENDENT' }, //independent???
+      x: { data: [], units: '°C', label: 'temperature', type: 'DEPENDENT' },
+      y: { data: [], units: 'mg', label: 'weight', type: 'DEPENDENT' },
       t: { data: [], units: 'min', label: 'time', type: 'INDEPENDENT' },
       u: {
         data: [],
         units: '°C',
         label: 'program temperature',
-        type: 'INDEPENDENT',
+        type: 'DEPENDENT',
       },
-      g: { data: [], units: 'ml/min', label: 'gas flow', type: 'INDEPENDENT' },
+      g: { data: [], units: 'ml/min', label: 'gas flow', type: 'DEPENDENT' },
     },
     meta: {},
   };
