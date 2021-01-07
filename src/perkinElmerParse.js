@@ -4,7 +4,7 @@ import addRun from './addRun';
 import addRunData from './addRunData';
 import { getMatrixFromXLSX } from './getMatrixFromXLSX';
 
-export default function perkinsElmerParse(file) {
+export default function perkinElmerParse(file) {
   let matrix = getMatrixFromXLSX(file);
   //console.log(content);
   let from = 0;

@@ -1,12 +1,12 @@
 import { readFileSync } from 'fs';
 import { join } from 'path';
 
-import perkinsElmerParse from '../perkinsElmerParse.js';
+import perkinElmerParse from '../perkinElmerParse.js';
 
 describe('test perkinsElmerParse', () => {
   it.only('should return object with the info from files rawTGA', () => {
     let file = readFileSync(join(__dirname, '/example/rawTGA.xlsx'));
-    let result = perkinsElmerParse(file);
+    let result = perkinElmerParse(file);
 
     expect(result).toMatchSnapshot();
     expect(result.variables.x.data).toHaveLength(4140);
@@ -15,7 +15,7 @@ describe('test perkinsElmerParse', () => {
   });
   it('should return object with the info from file rawTGA2.xlsx', () => {
     let file = readFileSync(join(__dirname, '/example/rawTGA2.xlsx'));
-    let result = perkinsElmerParse(file);
+    let result = perkinElmerParse(file);
     expect(result).toMatchSnapshot();
     expect(result.x).toHaveLength(5699);
 
@@ -24,7 +24,7 @@ describe('test perkinsElmerParse', () => {
 
   it('should return object with the info from files rawTGA3', () => {
     let file = readFileSync(join(__dirname, '/example/rawTGA3.xlsx'));
-    let result = perkinsElmerParse(file);
+    let result = perkinElmerParse(file);
     expect(result).toMatchSnapshot();
     expect(result.x).toHaveLength(3719);
     //console.log(result.x.length);
@@ -32,7 +32,7 @@ describe('test perkinsElmerParse', () => {
   });
   it('should return object with the info from file rawTGA4.xlsx', () => {
     let file = readFileSync(join(__dirname, '/example/rawTGA4.xlsx'));
-    let result = perkinsElmerParse(file);
+    let result = perkinElmerParse(file);
     expect(result).toMatchSnapshot();
     expect(result.x).toHaveLength(5699);
 
@@ -40,7 +40,7 @@ describe('test perkinsElmerParse', () => {
   });
   it('should return object with the info from file rawTGA5.xlsx', () => {
     let file = readFileSync(join(__dirname, '/example/rawTGA5.xlsx'));
-    let result = perkinsElmerParse(file);
+    let result = perkinElmerParse(file);
     expect(result).toMatchSnapshot();
     expect(result.x).toHaveLength(10559);
 
@@ -48,7 +48,7 @@ describe('test perkinsElmerParse', () => {
   });
   it('should return object with the info from files rawTGA6', () => {
     let file = readFileSync(join(__dirname, '/example/rawTGA6.xlsx'));
-    let result = perkinsElmerParse(file);
+    let result = perkinElmerParse(file);
     expect(result).toMatchSnapshot();
     expect(result.x).toHaveLength(11099);
 
@@ -56,7 +56,7 @@ describe('test perkinsElmerParse', () => {
   });
   it('should return object with the info from files rawTGA7', () => {
     let file = readFileSync(join(__dirname, '/example/rawTGA7.xlsx'));
-    let result = perkinsElmerParse(file);
+    let result = perkinElmerParse(file);
     expect(result).toMatchSnapshot();
     expect(result.x).toHaveLength(22379);
 
@@ -64,7 +64,7 @@ describe('test perkinsElmerParse', () => {
   });
   it('should return object with the info from files rawTGA8', () => {
     let file = readFileSync(join(__dirname, '/example/rawTGA8.xlsx'));
-    let result = perkinsElmerParse(file);
+    let result = perkinElmerParse(file);
     expect(result).toMatchSnapshot();
     expect(result.x).toHaveLength(5279);
 
@@ -72,7 +72,7 @@ describe('test perkinsElmerParse', () => {
   });
   it('should return object with the info from file rawTGA9.xlsx', () => {
     let file = readFileSync(join(__dirname, '/example/rawTGA9.xlsx'));
-    let result = perkinsElmerParse(file);
+    let result = perkinElmerParse(file);
     expect(result).toMatchSnapshot();
     expect(result.x).toHaveLength(2123);
 
@@ -80,7 +80,7 @@ describe('test perkinsElmerParse', () => {
   });
   it('should return object with the info from file rawTGA10.xlsx', () => {
     let file = readFileSync(join(__dirname, '/example/rawTGA10.xlsx'));
-    let result = perkinsElmerParse(file);
+    let result = perkinElmerParse(file);
     expect(result).toMatchSnapshot();
     expect(result.x).toHaveLength(4292);
 
