@@ -4,7 +4,7 @@ import { join } from 'path';
 import perkinElmerParse from '../perkinElmerParse.js';
 
 describe('test perkinsElmerParse', () => {
-  it.only('should return object with the info from files rawTGA', () => {
+  it('should return object with the info from files rawTGA', () => {
     let file = readFileSync(join(__dirname, '/example/rawTGA.xlsx'));
     let result = perkinElmerParse(file);
 
@@ -17,7 +17,7 @@ describe('test perkinsElmerParse', () => {
     let file = readFileSync(join(__dirname, '/example/rawTGA2.xlsx'));
     let result = perkinElmerParse(file);
     expect(result).toMatchSnapshot();
-    expect(result.x).toHaveLength(5699);
+    expect(result.variables.x.data).toHaveLength(5699);
 
     //console.log(result);
   });
@@ -26,7 +26,7 @@ describe('test perkinsElmerParse', () => {
     let file = readFileSync(join(__dirname, '/example/rawTGA3.xlsx'));
     let result = perkinElmerParse(file);
     expect(result).toMatchSnapshot();
-    expect(result.x).toHaveLength(3719);
+    expect(result.variables.x.data).toHaveLength(3719);
     //console.log(result.x.length);
     //console.log(result);
   });
@@ -34,7 +34,7 @@ describe('test perkinsElmerParse', () => {
     let file = readFileSync(join(__dirname, '/example/rawTGA4.xlsx'));
     let result = perkinElmerParse(file);
     expect(result).toMatchSnapshot();
-    expect(result.x).toHaveLength(5699);
+    expect(result.variables.x.data).toHaveLength(5699);
 
     //console.log(result);
   });
@@ -42,7 +42,7 @@ describe('test perkinsElmerParse', () => {
     let file = readFileSync(join(__dirname, '/example/rawTGA5.xlsx'));
     let result = perkinElmerParse(file);
     expect(result).toMatchSnapshot();
-    expect(result.x).toHaveLength(10559);
+    expect(result.variables.x.data).toHaveLength(10559);
 
     //console.log(result);
   });
@@ -50,7 +50,7 @@ describe('test perkinsElmerParse', () => {
     let file = readFileSync(join(__dirname, '/example/rawTGA6.xlsx'));
     let result = perkinElmerParse(file);
     expect(result).toMatchSnapshot();
-    expect(result.x).toHaveLength(11099);
+    expect(result.variables.x.data).toHaveLength(11099);
 
     //console.log(result);
   });
@@ -58,7 +58,7 @@ describe('test perkinsElmerParse', () => {
     let file = readFileSync(join(__dirname, '/example/rawTGA7.xlsx'));
     let result = perkinElmerParse(file);
     expect(result).toMatchSnapshot();
-    expect(result.x).toHaveLength(22379);
+    expect(result.variables.x.data).toHaveLength(22379);
 
     //console.log(result);
   });
@@ -66,7 +66,7 @@ describe('test perkinsElmerParse', () => {
     let file = readFileSync(join(__dirname, '/example/rawTGA8.xlsx'));
     let result = perkinElmerParse(file);
     expect(result).toMatchSnapshot();
-    expect(result.x).toHaveLength(5279);
+    expect(result.variables.x.data).toHaveLength(5279);
 
     //console.log(result);
   });
@@ -74,7 +74,7 @@ describe('test perkinsElmerParse', () => {
     let file = readFileSync(join(__dirname, '/example/rawTGA9.xlsx'));
     let result = perkinElmerParse(file);
     expect(result).toMatchSnapshot();
-    expect(result.x).toHaveLength(2123);
+    expect(result.variables.x.data).toHaveLength(2123);
 
     //console.log(result);
   });
@@ -82,7 +82,7 @@ describe('test perkinsElmerParse', () => {
     let file = readFileSync(join(__dirname, '/example/rawTGA10.xlsx'));
     let result = perkinElmerParse(file);
     expect(result).toMatchSnapshot();
-    expect(result.x).toHaveLength(4292);
+    expect(result.variables.x.data).toHaveLength(4292);
 
     //console.log(result);
   });
