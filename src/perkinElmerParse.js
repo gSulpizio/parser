@@ -3,9 +3,11 @@ import addPreRunData from './addPreRunData';
 import addRun from './addRun';
 import addRunData from './addRunData';
 import { getMatrixFromXLSX } from './getMatrixFromXLSX';
+import trimMatrix from './trimMatrix';
 
 export default function perkinElmerParse(file) {
   let matrix = getMatrixFromXLSX(file);
+  let trimmedMatrix = trimMatrix(matrix);
   //console.log(content);
   let from = 0;
   let result = {
@@ -25,29 +27,29 @@ export default function perkinElmerParse(file) {
   };
   let swtch = true;
   let i = 0;
-  while ((swtch = true) && i < matrix.length) {
-    if (typeof matrix[i][0] === 'undefined') {
+  while ((swtch = true) && i < trimmedMatrix.length) {
+    if (typeof trimmedMatrix[i][0] === 'undefined') {
       i++;
       continue;
     }
-    if (matrix[i][0] === 'Pre-Run Actions ') {
-      addMetaData(matrix.slice(from, i), result);
+    if (trimmedMatrix[i][0] === 'Pre-Run Actions ') {
+      addMetaData(trimmedMatrix.slice(from, i), result);
       from = i + 1;
     }
 
-    if (matrix[i][0] === 'Start the Run ') {
-      addPreRunData(matrix.slice(from, i), result);
+    if (trimmedMatrix[i][0] === 'Start the Run ') {
+      addPreRunData(trimmedMatrix.slice(from, i), result);
       from = i + 1;
     }
 
-    if (matrix[i][0].includes(') ') && from - i !== 0) {
-      addRunData(matrix.slice(from, i), result);
+    if (trimmedMatrix[i][0].includes(') ') && from - i !== 0) {
+      addRunData(trimmedMatrix.slice(from, i), result);
       from = i + 1;
       swtch = false;
       break;
     }
     i++;
   }
-  addRun(matrix, result, from);
+  addRun(trimmedMatrix, result, from);
   return result;
 }
