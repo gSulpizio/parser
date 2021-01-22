@@ -1,9 +1,20 @@
-import { readFileSync } from 'fs';
+import { readFileSync, writeFileSync } from 'fs';
 import { join } from 'path';
+import getSANPlot from '../getSANPlot.js';
 
 import perkinElmerParse from '../perkinElmerParse.js';
 
 describe('test perkinsElmerParse', () => {
+  it.only('Testing getSANPlot with nmr data', () => {
+    let file = readFileSync(join(__dirname, '/example/nmr.json'));
+    let result = JSON.parse(file);
+
+    //for testing purposes:
+
+    let sanData = result;
+
+    getSANPlot(sanData, { isSorted: false });
+  });
   it('should return object with the info from files rawTGA', () => {
     let file = readFileSync(join(__dirname, '/example/rawTGA.xlsx'));
     let result = perkinElmerParse(file);
@@ -36,7 +47,14 @@ describe('test perkinsElmerParse', () => {
         calibrationInformation: [['Date/Time:', '']],
       },
     };
+    //for testing purposes:
 
+    let sanData = {
+      x: result.variables.x.data.slice(),
+      y: result.variables.y.data.slice(),
+    };
+
+    getSANPlot(sanData, { isSorted: false });
     expect(result).toMatchSnapshot();
     expect(result.variables.x.data).toHaveLength(4140);
 
@@ -47,6 +65,8 @@ describe('test perkinsElmerParse', () => {
     delete result.variables.g.data;
 
     expect(result).toStrictEqual(resultTemplate);
+
+    //writeFileSync(join(__dirname, 'data.json'), JSON.stringify(data), 'utf8');
 
     //console.log(result);
   });
